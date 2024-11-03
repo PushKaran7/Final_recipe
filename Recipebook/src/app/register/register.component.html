@@ -1,0 +1,49 @@
+<div class="reg-container">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <h2 class="reg-heading">Register</h2>
+  
+      <div class="logo-placeholder">
+        <img src="Designer.jpeg" alt="Logo" class="logo-image">
+      </div>
+  
+      <div class="reg-field-group">
+        <label for="email" class="reg-label">Email</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          placeholder="Enter Your Email"
+          class="reg-input"
+        />
+        <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+          <small class="reg-error">Please enter a valid email.</small>
+        </div>
+      </div>
+  
+      <div class="reg-field-group">
+        <label for="password" class="reg-label">Password</label>
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          placeholder="Enter Your Password"
+          class="reg-input"
+        />
+        <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+          <small class="reg-error">Password is required.</small>
+        </div>
+      </div>
+  
+     
+  
+      <button type="submit" class="reg-button" [disabled]="registerForm.invalid">Register</button>
+
+      <div class="reg-terms-group">
+       
+        <p for="terms" class="reg-terms-label">
+          Already a User?<a href="#" class="reg-link" [routerLink]="'/login'">Login here</a>
+        </p>
+      </div>
+    </form>
+  </div>
+  

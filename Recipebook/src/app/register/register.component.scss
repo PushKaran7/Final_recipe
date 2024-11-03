@@ -1,0 +1,141 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    font-family: Arial, sans-serif;
+  }
+  
+  .reg-container {
+    width: 100%;
+    max-width: 380px;
+    padding: 30px 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin: auto;
+    margin-top: 40px;
+  }
+  
+  
+  .reg-heading {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+ 
+  .logo-placeholder {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: #f0f0f0;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+ 
+  .reg-field-group {
+    margin-bottom: 18px;
+    text-align: left;
+  }
+  
+  .reg-label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #555;
+    display: block;
+  }
+  
+  .reg-input {
+    width: 100%;
+    padding: 12px 3px;
+    font-size: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    transition: border-color 0.3s;
+  }
+  
+  .reg-input:focus {
+    border-color: #2575fc;
+    outline: none;
+  }
+  
+  .reg-error {
+    color: #e74c3c;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  
+  .reg-terms-group {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .reg-checkbox {
+    margin-right: 10px;
+    accent-color: #2575fc;
+  }
+  
+  .reg-terms-label {
+    font-size: 13px;
+    color: #666;
+  }
+  
+  .reg-link {
+    color: #2575fc;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .reg-link:hover {
+    text-decoration: underline;
+  }
+  
+  
+  .reg-button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .reg-button:disabled {
+    background: #ddd;
+    cursor: not-allowed;
+  }
+  
+  .reg-button:not(:disabled):hover {
+    background: linear-gradient(45deg, #5a0cbf, #1b6de3);
+  }
+  .logo-placeholder {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .logo-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
