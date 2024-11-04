@@ -27,13 +27,13 @@ export class AuthService {
     return this._http.post<any>(`${this.authUrl}/login`, data)
       .pipe(
         map(response => {
-          console.log('API Response:', response); // Log the entire response
-          if (response.accessToken) { // Check if the token exists in the response
+          console.log('API Response:', response);
+          if (response.accessToken) { 
             localStorage.setItem('JWT_Token', response.accessToken);
             this.isLoggedIn = true;
             return true;
           }
-          return false; // Return false if token is not present
+          return false; 
         }),
         catchError(error => {
           console.log(error);

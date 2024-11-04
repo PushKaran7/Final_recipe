@@ -1,13 +1,33 @@
 <mat-toolbar>
-  <a [routerLink]="'/home'" class="side-placeholder">  
+  <a [routerLink]="'/home'" class="side-placeholder">
     <img src="Designer.jpeg" alt="Logo" class="side-image">
   </a>
-    
-    <span >Master Recipe</span>
-    <span class="example-spacer"></span>
-    
-    
-    <button mat-raised-button  class="add-button"><mat-icon aria-hidden="false" fontIcon="add"></mat-icon>Add Recipe</button>
-    <button mat-raised-button color="primary">Logout</button>
-  </mat-toolbar>
+
+  <span>Master Recipe</span>
+  <span class="example-spacer"></span>
+
+
+  <button mat-raised-button class="add-button" (click)="addRecipe()"><mat-icon aria-hidden="false" fontIcon="add"></mat-icon>Add
+    Recipe</button>
+  <button mat-raised-button color="primary" (click)="logoutFunc()">Logout</button>
+</mat-toolbar>
+<div *ngIf="recipeItem.length === 0">
+  <h2>No Recipe Present,Please add a Recipe </h2>
+
+</div>
+
+<div>
+  <mat-grid-list *ngIf="recipeItem.length > 0" cols="3" rowHeight="3:3">
+    <mat-grid-tile *ngFor="let recipe of recipeItem; let i = index">
+      <app-cards
+       
+        [item]="recipe"
+        (click)="displayRecipe()"
+      ></app-cards>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+</div>
   
+
+

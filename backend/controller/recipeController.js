@@ -11,7 +11,7 @@ const getAllRecipe = asyncHandler(async (req, res) => {
 
 const getOneRecipe= asyncHandler(async (req, res) => {
     console.log("I am in getOneRecipe");
-    const item = await Recipe.findOne({recipeId:req.params.id});
+    const item = await Recipe.findOne({recipeId:req.params.recipeId});
     res.status(200).json(item);
 });
 
@@ -50,9 +50,11 @@ const createRecipe = asyncHandler(async (req, res) => {
 });
 
 const updateRecipe = asyncHandler(async (req, res) => {
+
     try {
+        console.log("i am in update recipe ");
         const item = await Recipe.findOneAndUpdate(
-            { recipeId: req.params.id },
+            { recipeId: req.params.recipeId},
             req.body,
             { new: true }
         );
@@ -72,7 +74,7 @@ const updateRecipe = asyncHandler(async (req, res) => {
 const deleteRecipe=asyncHandler(async (req,res)=>{
    try{
     
-    const item= await Recipe.findOne({recipeId:req.params.id});
+    const item= await Recipe.findOne({recipeId:req.params.recipeId});
     if(!item){
         res.status(404).json({message:"Recipe NOt Found!"});
     }

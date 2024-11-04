@@ -18,4 +18,9 @@ export class RecipeService {
     console.log("i am inside getAllRecipe service");
     return this._http.get<IRecipe[]>(this.baseUrl);
   }
+
+  addRecipe(data:any):Observable<any>{
+    console.log("I am inside add Recipe");
+    return this._http.post<any>(this.baseUrl,data);
+  }
 }

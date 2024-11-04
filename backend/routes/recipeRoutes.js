@@ -11,12 +11,12 @@ router.use(validateToken);
 
 router.route("/").get(getAllRecipe);
 
-router.route("/:id").get(getOneRecipe);
+router.route("/:recipeId").get(getOneRecipe);
 
 router.route("/").post(createRecipe);
 
-router.route("/:id").put(updateRecipe);
+router.route("/:recipeId").put(updateRecipe);
 
-router.route("/:id").delete(deleteRecipe);
+router.route("/:recipeId").delete(deleteRecipe);
 
 module.exports=router;
