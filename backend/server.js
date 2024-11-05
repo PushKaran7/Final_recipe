@@ -23,7 +23,7 @@ app.use('/api/recipes',require('./routes/recipeRoutes'));
 
 app.use('/api/auth',require('./routes/userRoutes'));
 
-
+app.use('/api/cart',require('./routes/cartRoutes'));
 
 
 app.listen(port,()=>{

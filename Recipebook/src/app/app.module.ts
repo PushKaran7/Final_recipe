@@ -19,6 +19,8 @@ import { AuthInterceptorService } from './auth-interceptor.service';
 import { CartComponent } from './cart/cart.component';
 import { MatToolbar } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -40,7 +42,9 @@ import { MatTabsModule } from '@angular/material/tabs';
     RouterModule,
     MatButtonModule,
     MatToolbar,
-    MatTabsModule
+    MatTabsModule,
+    MatCardModule,
+    MatGridListModule
   ],
   providers: [
     provideAnimationsAsync(),

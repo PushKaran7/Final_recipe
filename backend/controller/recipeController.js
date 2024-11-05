@@ -44,7 +44,7 @@ const createRecipe = asyncHandler(async (req, res) => {
 
     }
     catch (err) {
-        console.error("Error creating recipe:", error.message);
+        console.error("Error creating recipe:", err.message);
         res.status(500).json({ message: "Error saving recipe to the database." });
     }
 });
@@ -67,7 +67,7 @@ const updateRecipe = asyncHandler(async (req, res) => {
 
     }
     catch(err){
-        res.status(400).json({ message: error.message });
+        res.status(400).json({ message: err.message });
     }
 });
 

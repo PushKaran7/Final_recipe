@@ -1,26 +1,38 @@
 <mat-toolbar>
-    <a [routerLink]="'/home'" class="side-placeholder">
-      <img src="Designer.jpeg" alt="Logo" class="side-image">
-    </a>
-  
-    <span>Master Recipe</span>
-    <span class="example-spacer"></span>
-   
-     <div class="naving-items">
-      <nav mat-tab-nav-bar >
-        @for (link of links; track link) {
-          <a mat-tab-link
-          [routerLink]="link.path"
-          (click)="activeLink = link.name"
-          [active]="activeLink === link.name"> {{link.name}} </a>
-        }
-        
-      </nav>
-     </div>
-  
-    <!-- <button mat-raised-button class="add-button" (click)="addRecipe()"><mat-icon aria-hidden="false"
-        fontIcon="add"></mat-icon>Add
-      Recipe</button>
-    <button mat-raised-button color="primary" (click)="logoutFunc()">Logout</button> -->
-  </mat-toolbar>
-<p>cart works!</p>
+  <a [routerLink]="'/home'" class="side-placeholder">
+    <img src="Designer.jpeg" alt="Logo" class="side-image">
+  </a>
+
+  <span>Master Recipe</span>
+  <span class="example-spacer"></span>
+
+  <div class="naving-items">
+    <nav mat-tab-nav-bar>
+      @for (link of links; track link) {
+      <a mat-tab-link [routerLink]="link.path" (click)="activeLink = link.name" [active]="activeLink === link.name">
+        {{link.name}} </a>
+      }
+
+    </nav>
+  </div>
+
+
+</mat-toolbar>
+
+<div class="cart-container">
+  <mat-grid-list cols="5" gutterSize="20px" rowHeight="1:1">
+    <mat-grid-tile *ngFor="let item of cartItems; let i = index">
+      <mat-card class="cart-item-card">
+        <mat-card-header>
+          <mat-card-title>{{ item.name }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Quantity: {{ item.quantity }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="warn" (click)="removeIngredient(item._id)">Remove</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
