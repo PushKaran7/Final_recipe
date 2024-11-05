@@ -1,6 +1,6 @@
 Recipe_App
 
-command to run frontend- ng serve
+command to run frontend- ng serve,
 command to run backend -npm run dev
 ![image](https://github.com/user-attachments/assets/bbdf128b-3624-4d7d-95ad-485472757648)
 ![image](https://github.com/user-attachments/assets/cc7d8fbd-1151-4819-b9e2-c15d8a835280)
