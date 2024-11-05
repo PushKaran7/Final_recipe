@@ -5,9 +5,21 @@
 
   <span>Master Recipe</span>
   <span class="example-spacer"></span>
+ 
+   <div class="nav-items">
+    <nav mat-tab-nav-bar >
+      @for (link of links; track link) {
+        <a mat-tab-link
+        [routerLink]="link.path"
+        (click)="activeLink = link.name"
+        [active]="activeLink === link.name"> {{link.name}} </a>
+      }
+      
+    </nav>
+   </div>
 
-
-  <button mat-raised-button class="add-button" (click)="addRecipe()"><mat-icon aria-hidden="false" fontIcon="add"></mat-icon>Add
+  <button mat-raised-button class="add-button" (click)="addRecipe()"><mat-icon aria-hidden="false"
+      fontIcon="add"></mat-icon>Add
     Recipe</button>
   <button mat-raised-button color="primary" (click)="logoutFunc()">Logout</button>
 </mat-toolbar>
@@ -16,18 +28,22 @@
 
 </div>
 
+<div class="search-bar">
+  <mat-form-field class="example-full-width">
+    <mat-label>Search here</mat-label>
+    <input matInput type="text" placeholder="Ex Pizza" (keyup)="searchRecipe($event)">
+  </mat-form-field>
+</div>
+
+
 <div>
   <mat-grid-list *ngIf="recipeItem.length > 0" cols="3" rowHeight="3:3">
-    <mat-grid-tile *ngFor="let recipe of recipeItem; let i = index">
-      <app-cards
-       
-        [item]="recipe"
-        (click)="displayRecipe()"
-      ></app-cards>
+    <mat-grid-tile *ngFor="let recipe of filteredRecipe; let i = index">
+      <app-cards [item]="recipe" (click)="displayRecipe(recipe.recipeId)"></app-cards>
     </mat-grid-tile>
   </mat-grid-list>
 
 </div>
-  
-
-
+<div>
+  <router-outlet></router-outlet>
+</div>

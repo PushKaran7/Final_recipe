@@ -78,7 +78,7 @@ const deleteRecipe=asyncHandler(async (req,res)=>{
     if(!item){
         res.status(404).json({message:"Recipe NOt Found!"});
     }
-    await Recipe.findOneAndDelete({recipeId:req.params.id})
+    await Recipe.findOneAndDelete({recipeId:req.params.recipeId})
     res.status(200).json({message:"Deleted the Recipe",item});
    }
    catch (error) {

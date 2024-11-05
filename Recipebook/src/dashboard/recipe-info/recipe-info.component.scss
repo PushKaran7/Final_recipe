@@ -1,0 +1,116 @@
+.recipe-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  height: auto;
+  padding: 20px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.3); /* Increase opacity for better contrast */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.thumbnail-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+
+  .thumbnail-image {
+    width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.info-container {
+  text-align: center;
+  width: 100%;
+}
+
+.recipe-title {
+  font-size: 1.8em;
+  font-weight: 600;
+  color: #333; /* Darker color for better contrast */
+  margin: 5px 0 10px;
+}
+
+.recipe-description {
+  font-size: 1em;
+  color: #555; /* Darker color for better readability */
+  margin-bottom: 15px;
+}
+
+.meta-info {
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.9em;
+  color: #444; /* Slightly darker for better visibility */
+
+  .author, .time {
+    font-weight: 500;
+  }
+}
+
+.ingredients-title {
+  font-size: 1.2em;
+  margin: 10px 0 5px;
+  color: #333;
+}
+
+.ingredients-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.95em;
+  color: #444;
+
+  li {
+    padding: 3px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+}
+
+.bottoms, .add-to-cart {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.bottoms button, .add-to-cart button {
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 8px 15px;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.bottoms button {
+  color: #fff;
+  background-color: rgba(255, 82, 82, 0.8);
+}
+
+.bottoms button:hover {
+  background-color: rgba(255, 82, 82, 1);
+}
+
+.add-to-cart button {
+  width: 100%;
+  color: #fff;
+  background-color: rgba(76, 175, 80, 0.8);
+}
+
+.add-to-cart button:hover {
+  background-color: rgba(76, 175, 80, 1);
+}
+
+.loading-message {
+  color: #333;
+  font-size: 1.2em;
+  text-align: center;
+}

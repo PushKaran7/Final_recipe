@@ -1,0 +1,26 @@
+<mat-toolbar>
+    <a [routerLink]="'/home'" class="side-placeholder">
+      <img src="Designer.jpeg" alt="Logo" class="side-image">
+    </a>
+  
+    <span>Master Recipe</span>
+    <span class="example-spacer"></span>
+   
+     <div class="naving-items">
+      <nav mat-tab-nav-bar >
+        @for (link of links; track link) {
+          <a mat-tab-link
+          [routerLink]="link.path"
+          (click)="activeLink = link.name"
+          [active]="activeLink === link.name"> {{link.name}} </a>
+        }
+        
+      </nav>
+     </div>
+  
+    <!-- <button mat-raised-button class="add-button" (click)="addRecipe()"><mat-icon aria-hidden="false"
+        fontIcon="add"></mat-icon>Add
+      Recipe</button>
+    <button mat-raised-button color="primary" (click)="logoutFunc()">Logout</button> -->
+  </mat-toolbar>
+<p>cart works!</p>

@@ -16,13 +16,17 @@ import { DashboardModule } from '../dashboard/dashboard.module';
 import { RouterModule } from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
 import { AuthInterceptorService } from './auth-interceptor.service';
+import { CartComponent } from './cart/cart.component';
+import { MatToolbar } from '@angular/material/toolbar';
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +39,8 @@ import { AuthInterceptorService } from './auth-interceptor.service';
     DashboardModule,
     RouterModule,
     MatButtonModule,
+    MatToolbar,
+    MatTabsModule
   ],
   providers: [
     provideAnimationsAsync(),

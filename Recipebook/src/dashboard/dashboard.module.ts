@@ -16,6 +16,9 @@ import {MatInputModule} from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms'; 
 
 import {FormsModule} from '@angular/forms';
+import { RecipeInfoComponent } from './recipe-info/recipe-info.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 
@@ -23,7 +26,8 @@ import {FormsModule} from '@angular/forms';
   declarations: [
     HomeComponent,
     CardsComponent,
-    AddEditCardComponent
+    AddEditCardComponent,
+    RecipeInfoComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +43,9 @@ import {FormsModule} from '@angular/forms';
     MatLabel,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSnackBarModule,
+    MatTabsModule
   
 
 

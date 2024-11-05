@@ -1,0 +1,41 @@
+<div class="recipe-container" *ngIf="recipeDetails">
+  
+  <div class="thumbnail-container">
+    <img [src]="recipeDetails.thumbnail_url" alt="{{ recipeDetails.title }}" class="thumbnail-image" />
+  </div>
+
+  
+  <div class="info-container">
+    
+    <h1 class="recipe-title">{{ recipeDetails.title }}</h1>
+
+    
+    <p class="recipe-description">{{ recipeDetails.description }}</p>
+
+    
+    <div class="meta-info">
+      <span class="author">Author: {{ recipeDetails.author }}</span>
+      <span class="time">Time to Prepare: {{ recipeDetails.time_to_prepare }} minutes</span>
+    </div>
+
+    
+    <h3 class="ingredients-title">Ingredients</h3>
+    <ul class="ingredients-list">
+      <li *ngFor="let ingredient of recipeDetails.ingredients">
+        {{ ingredient.quantity }} {{ ingredient.name }}
+      </li>
+    </ul>
+  </div>
+  <div mat-dialog-actions class="bottoms">
+    <button mat-raised-button type="button" (click)="deleteRecipeItem()">Delete</button>
+    <button mat-raised-button color="primary" (click)="editRecipeDetails()">Edit</button>
+  </div>
+  <div>
+    <button mat-raised-button type="button">Add to Cart</button>
+  </div>
+</div>
+
+
+<div *ngIf="!recipeDetails" class="loading-message">
+  Loading recipe details...
+</div>
