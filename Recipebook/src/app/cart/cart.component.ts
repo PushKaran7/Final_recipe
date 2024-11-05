@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-cart',
@@ -18,7 +19,7 @@ export class CartComponent implements OnInit{
 
   activeLink = this.links[1].name;
 
-  constructor(private _cart:CartService){
+  constructor(private _cart:CartService,private snackBar: MatSnackBar){
 
   }
 
@@ -43,7 +44,11 @@ export class CartComponent implements OnInit{
   removeIngredient(id:string){
     this._cart.deleteCartItem(id).subscribe({
       next:(val)=>{
-        alert("Ingredient deleted!");
+        this.snackBar.open("Ingredient Removed", "ok", {
+          duration: 3000,
+          horizontalPosition: 'center', 
+          verticalPosition: 'top',
+        });
         console.log("Deleted INgredient is -->",val);
         this.loadCartItems();
       },

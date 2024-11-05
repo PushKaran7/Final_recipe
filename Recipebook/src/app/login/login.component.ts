@@ -36,16 +36,16 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       console.log("Data is present");
       this._auth.loginUser(data).subscribe({
-        next: (val: boolean) => { // Adjust to expect a boolean
-          if (val) { // If login is successful
+        next: (val: boolean) => {
+          if (val) { 
             console.log("User permitted to enter");
             this.router.navigate(['/home']);
           } else {
-            console.log("Login failed"); // Handle login failure
+            console.log("Login failed"); 
           }
         },
         error: (err) => {
-          console.log(err); // Log error
+          console.log(err);
         }
       });
     } else {

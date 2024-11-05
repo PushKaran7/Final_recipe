@@ -4,6 +4,8 @@ import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { IRecipe } from '../../app/model/recipe';
 import { AddEditCardComponent } from '../add-edit-card/add-edit-card.component';
 import { CartService } from '../../app/services/cart.service';
+import { ConfirmDelComponent } from '../../app/confirm-del/confirm-del.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -14,13 +16,13 @@ import { CartService } from '../../app/services/cart.service';
 export class RecipeInfoComponent implements OnInit {
 
   recipeDetails: IRecipe | null = null;
-  snackBar: any;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: { recipeId: string },
     private _recipe: RecipeService,
     private dialog: MatDialog,
-    private _cart: CartService
+    private _cart: CartService,
+    private snackBar: MatSnackBar    
 
   ) {
 
@@ -61,16 +63,39 @@ export class RecipeInfoComponent implements OnInit {
   }
 
   deleteRecipeItem() {
-    this._recipe.deleteRecipe(this.data.recipeId).subscribe({
-      next: (val: any) => {
+    const DialogRef=this.dialog.open(ConfirmDelComponent);
 
-        alert("Deleted Recipe!!!");
-        console.log("Recipe deleted response:", val);
+    DialogRef.afterClosed().subscribe( result =>{
+      if(result === 'yes'){
+        this._recipe.deleteRecipe(this.data.recipeId).subscribe({
+          next: (val: any) => {
+    
+            this.snackBar.open("Recipe Deleted", "ok", {
+              duration: 3000,
+              horizontalPosition: 'center', 
+              verticalPosition: 'top',
+            });
+            console.log("Recipe deleted response:", val);
+    
+    
+          },
+          error: (err) => console.error("Error Deleting Recipe-->", err)
+        })
+        
 
-
-      },
-      error: (err) => console.error("Error Deleting Recipe-->", err)
+      }
+      else{
+        this.snackBar.open("Recipe Not Deleted", "Close", {
+          duration: 3000,
+          horizontalPosition: 'center', 
+          verticalPosition: 'top',
+        });
+      }
     })
+
+    
+
+   
 
   }
 
@@ -90,7 +115,11 @@ export class RecipeInfoComponent implements OnInit {
           error: (error) => console.error(`Error adding ${ingredient.name} to cart`, error)
         });
       });
-      alert("All ingredients added to cart!");
+      this.snackBar.open("All Ingredients added to Cart", "Close", {
+        duration: 3000,
+        horizontalPosition: 'center', 
+        verticalPosition: 'top',
+      });
     }
   }
 

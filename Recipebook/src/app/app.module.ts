@@ -21,6 +21,7 @@ import { MatToolbar } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { ConfirmDelComponent } from './confirm-del/confirm-del.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    CartComponent
+    CartComponent,
+    ConfirmDelComponent
   ],
   imports: [
     BrowserModule,
